@@ -2,10 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Input from "../Forms/Input/Input";
 import Button from "../Forms/Button/Button";
+import useForm from "../../Hooks/useForm";
 
 const LoginForm = () => {
-  const [username, setUsername] = React.useState(null);
-  const [password, setPassword] = React.useState(null);
+  const username = useForm();
+  const password = useForm();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -16,7 +17,7 @@ const LoginForm = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({}),
       }
     );
     console.log(response);
@@ -28,18 +29,8 @@ const LoginForm = () => {
     <section>
       <h1>Login</h1>
       <form action="" onSubmit={handleSubmit}>
-        <Input
-          label="Usuário"
-          value={username}
-          name={username}
-          onChange={setUsername}
-        />
-        <Input
-          label="Usuário"
-          value={password}
-          name={password}
-          onChange={setPassword}
-        />
+        <Input type="text" label="Usuário" name="username" {...username} />
+        <Input type="password" label="Senha" name="password" {...password} />
         <Button>Entrar</Button>
       </form>
 
