@@ -10,23 +10,30 @@ const LoginForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await fetch(
-      "https://dogsapi.origamid.dev/json/jwt-auth/v1/token",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({}),
-      }
-    );
-    console.log(response);
-    const json = await response.json();
-    console.log(json);
+
+    if (username.validate() && password.validate()) {
+      const response = await fetch(
+        "https://dogsapi.origamid.dev/json/jwt-auth/v1/token",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: username.value,
+            password: password.value,
+          }),
+        }
+      );
+      console.log(response);
+      const json = await response.json();
+      console.log(json);
+    }
   };
 
   return (
     <section>
+      {console.log(username.value, password.value)}
       <h1>Login</h1>
       <form action="" onSubmit={handleSubmit}>
         <Input type="text" label="Usuário" name="username" {...username} />
