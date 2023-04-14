@@ -9,6 +9,7 @@ body {
   --type-first: Helvetica, Arial, sans-serif;
   --type-second: "Spectral", Georgia;
   font-family: var(--type-first);
+  margin-top: 4rem;
 }
 
 ul {
@@ -18,6 +19,11 @@ ul {
 img {
   display: block;
   max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 button,
