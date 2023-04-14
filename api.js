@@ -13,4 +13,16 @@ const TOKEN_POST = (body) => {
   };
 };
 
-export { API_URL, TOKEN_POST };
+const USER_GET = (token) => {
+  return {
+    url: `${API_URL}/api/user`,
+    options: {
+      method: "GET",
+      headers: {
+        Autorization: `Bearer ${token}`,
+      },
+    },
+  };
+};
+
+export { API_URL, TOKEN_POST, USER_GET };
