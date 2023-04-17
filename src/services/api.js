@@ -50,4 +50,24 @@ const USER_POST = body => {
   }
 }
 
-export { API_URL, TOKEN_POST, USER_GET, USER_POST, TOKEN_VALIDATE_POST }
+const PHOTO_POST = (formData, token) => {
+  return {
+    url: `${API_URL}/api/photo`,
+    options: {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${token}`
+      },
+      body: formData
+    }
+  }
+}
+
+export {
+  API_URL,
+  TOKEN_POST,
+  USER_GET,
+  USER_POST,
+  PHOTO_POST,
+  TOKEN_VALIDATE_POST
+}
