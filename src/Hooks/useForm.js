@@ -4,6 +4,10 @@ const types = {
   email: {
     regex: /^\w+([.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
     message: 'Preencha um email válido'
+  },
+  number: {
+    regex: /^\d+$/,
+    message: 'Utilize números apenas'
   }
 }
 

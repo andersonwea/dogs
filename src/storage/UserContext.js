@@ -26,7 +26,6 @@ const UserStorage = ({ children }) => {
     const json = await response.json()
     setData(json)
     setLogin(true)
-    console.log(data)
   }
 
   const userLogin = async (username, password) => {
@@ -57,12 +56,13 @@ const UserStorage = ({ children }) => {
           const response = await fetch(url, options)
           if (!response.ok) throw new Error('Token inválido')
           await getUser(token)
-          navigate('/conta')
         } catch (err) {
           userLogout()
         } finally {
           setLoading(false)
         }
+      } else {
+        setLogin(false)
       }
     }
     autoLogin()
