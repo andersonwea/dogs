@@ -98,6 +98,18 @@ const COMMENT_POST = (id, body) => {
   }
 }
 
+const PHOTO_DELETE = id => {
+  return {
+    url: `${API_URL}/api/photo/${id}`,
+    options: {
+      method: 'DELETE',
+      headers: {
+        Authorization: `Bearer ${window.localStorage.getItem('token')}`
+      }
+    }
+  }
+}
+
 export {
   API_URL,
   TOKEN_POST,
@@ -106,6 +118,7 @@ export {
   PHOTO_POST,
   PHOTOS_GET,
   PHOTO_GET,
+  PHOTO_DELETE,
   COMMENT_POST,
   TOKEN_VALIDATE_POST
 }
