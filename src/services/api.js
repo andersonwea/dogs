@@ -63,11 +63,49 @@ const PHOTO_POST = (formData, token) => {
   }
 }
 
+const PHOTOS_GET = ({ page, total, user }) => {
+  return {
+    url: `${API_URL}/api/photo?_page=${page}&_total=${total}&_user${user}`,
+    options: {
+      method: 'GET',
+      cache: 'no-store'
+    }
+  }
+}
+
+const PHOTO_GET = id => {
+  return {
+    url: `${API_URL}/api/photo/${id}`,
+    options: {
+      method: 'GET',
+      cache: 'no-store'
+    }
+  }
+}
+
+const COMMENT_POST = (id, body) => {
+  console.log(id)
+  return {
+    url: `${API_URL}/api/comment/${id}`,
+    options: {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${window.localStorage.getItem('token')}`
+      },
+      body: JSON.stringify(body)
+    }
+  }
+}
+
 export {
   API_URL,
   TOKEN_POST,
   USER_GET,
   USER_POST,
   PHOTO_POST,
+  PHOTOS_GET,
+  PHOTO_GET,
+  COMMENT_POST,
   TOKEN_VALIDATE_POST
 }
