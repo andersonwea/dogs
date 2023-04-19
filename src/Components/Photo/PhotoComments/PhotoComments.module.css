@@ -9,6 +9,10 @@
   line-height: 1.2;
 }
 
+.single.comments {
+  padding: 0;
+}
+
 @media (max-width: 64rem) {
   .comments {
     height: 150px;
