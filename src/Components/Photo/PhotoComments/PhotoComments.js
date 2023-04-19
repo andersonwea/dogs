@@ -6,10 +6,15 @@ import { UserContext } from '../../../storage/UserContext'
 const PhotoComments = props => {
   const { login } = React.useContext(UserContext)
   const [comments, setComments] = React.useState(() => props.comments)
+  const commentsSection = React.useRef(null)
+
+  React.useEffect(() => {
+    commentsSection.current.scrollTop = commentsSection.current.scrollHeight
+  }, [comments])
 
   return (
     <>
-      <ul className={styles.comments}>
+      <ul ref={commentsSection} className={styles.comments}>
         {comments.map(comment => {
           return (
             <li key={comment.comment_ID}>
