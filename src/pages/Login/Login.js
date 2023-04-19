@@ -4,6 +4,7 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import LoginForm from './LoginForm'
 import LoginCreate from './LoginCreate'
 import { UserContext } from '../../storage/UserContext'
+import NotFound from '../../Components/NotFound/NotFound'
 
 const Login = () => {
   const { login } = React.useContext(UserContext)
@@ -16,6 +17,7 @@ const Login = () => {
         <Routes>
           <Route path="/" element={<LoginForm />} />
           <Route path="/criar" element={<LoginCreate />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </section>
