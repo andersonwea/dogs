@@ -38,6 +38,18 @@
     overflow-y: auto;
     grid-template-columns: minmax(20rem, 40rem);
   }
+
+  .img > div {
+    height: 100%;
+  }
+
+  .img > div img {
+    object-fit: cover;
+    object-position: bottom;
+    max-height: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
 }
 
 .author {
